@@ -119,6 +119,12 @@ There is no case where a non-terminal directly calls itself as the first element
 
 For the implementation, we used Python and the Natural Language Toolkit (NLTK) library to define the grammar and parse Latin sentences.
 
+If you don't have it installed, you can install it using the following command:
+```
+pip install ntlk
+```
+Once installed you can run the program as usual.
+
 First, we created a Context-Free Grammar (CFG) using nltk.CFG.fromstring(). The grammar defines simple Latin sentences following a subject-verb-object (SVO) structure. Subjects can be pronouns or nouns, verbs are simple present tense actions, and objects are accusative nouns.
 
 Here is the defined grammar:
