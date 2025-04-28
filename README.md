@@ -73,5 +73,81 @@ There is no case where a non-terminal directly calls itself as the first element
 
 ---
 
+## Implementation
+
+For the implementation, I used **Python** and the **Natural Language Toolkit (NLTK)** library to define the grammar and parse Latin sentences.
+
+First, I created a **Context-Free Grammar (CFG)** using `nltk.CFG.fromstring()`. The grammar defines simple Latin sentences with a subject-verb-object structure. Subjects can be pronouns or nouns, verbs are simple present tense actions, and objects are nouns.
+
+Here is the main structure of the grammar:
+
+- **S** → NP VP
+- **NP** → P | N
+- **VP** → V NP
+- **P** → ego | tu | ille | illa | nos | vos | illi
+- **V** → edit | bibit | amat | videt
+- **N** → puella | puerum | panem | aquam | pila | pelliculam
+
+I used a `ChartParser` from NLTK to parse input sentences based on this grammar.  
+The testing function `test_sentence()` takes a sentence as input, splits it into words, and tries to parse it. If the parser produces at least one valid parse tree, the sentence is considered **accepted**; otherwise, it is **rejected**.
+
+---
+
+## Tests
+
+I created two sets of test sentences: **valid sentences** that should be accepted by the grammar, and **invalid sentences** that should be rejected.
+
+### Valid Sentences
+These sentences strictly follow the grammar's structure:
+
+- `"ego edit panem"` (I eat bread)
+- `"illa videt pelliculam"` (She sees the movie)
+- `"puella amat puerum"` (The girl loves the boy)
+- `"nos bibit aquam"` (We drink water)
+
+All valid sentences were **accepted** by the parser:
+
+'ego edit panem': Accepted 'illa videt pelliculam': Accepted 'puella amat puerum': Accepted 'nos bibit aquam': Accepted
+
+
+### Invalid Sentences
+These sentences were designed to break the grammar rules, either by incorrect word order or improper structure:
+
+- `"ille panem bibit"`
+- `"vos panem edit"`
+- `"illi pelliculam videt"`
+- `"puella puerum amat"`
+
+All invalid sentences were correctly **rejected**:
+
+'ille panem bibit': Rejected 'vos panem edit': Rejected 'illi pelliculam videt': Rejected 'puella puerum amat': Rejected
+
+## Example of Pushdown Automaton (PDA)
+
+To better illustrate how the grammar recognizes a valid Latin sentence, here is a simplified example of how a Pushdown Automaton (PDA) would parse the sentence **"illa videt pelliculam"**:
+
+### Initial setup:
+- The stack initially contains the start symbol `S`.
+- The input string is `"illa videt pelliculam"`.
+
+### PDA transitions:
+
+| Step | Stack                | Input                     | Action |
+|:----:|:---------------------|:--------------------------|:-------|
+| 1    | S                    | illa videt pelliculam     | Expand `S → NP VP` |
+| 2    | VP NP                 | illa videt pelliculam     | Expand `NP → P` |
+| 3    | VP P                  | illa videt pelliculam     | Match `P → illa` |
+| 4    | VP                    | videt pelliculam          | Expand `VP → V NP` |
+| 5    | NP V                  | videt pelliculam          | Match `V → videt` |
+| 6    | NP                    | pelliculam                | Expand `NP → N` |
+| 7    | N                     | pelliculam                | Match `N → pelliculam` |
+| 8    | (empty)               | (empty)                   | Accept |
+
+### Explanation:
+- At each step, the PDA uses the top of the stack and the current input symbol to decide whether to expand a rule or match a terminal.
+- After consuming all input symbols and emptying the stack, the sentence is accepted as valid according to the grammar.
+
+This example confirms that the grammar is suitable for parsing using a context-free automaton like a PDA.
+
 
 
