@@ -26,6 +26,7 @@ P → puella | puer | vir | femina
 V → amat | videt | audit | laudat
 N → librum | puellam | puerum | feminam
 
+> "Noun phrases (NP) can be either nominative pronouns (P) or nouns (N) acting as subjects."
 
 Where:
 
