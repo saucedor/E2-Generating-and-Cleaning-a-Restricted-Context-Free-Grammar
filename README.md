@@ -72,6 +72,32 @@ For example, the sentence **"puella amat puerum"** ("the girl loves the boy") ca
 
 Since there are no alternative ways to group the words, there are no multiple derivations, and thus, no ambiguity is present in the grammar.
 
+## Potential Ambiguity (Hypothetical)
+
+Although the restricted Latin grammar I designed is unambiguous, it is important to acknowledge how ambiguity could arise if additional production rules were introduced without care.
+
+For instance, imagine if we had allowed noun phrases (NP) to recursively expand into multiple noun phrases, like this:
+
+````
+NP → NP NP
+````
+
+In that case, a sentence such as:
+
+> "puella puerum amat"
+> ("the girl the boy loves")
+
+could have two different parse trees:
+
+- One interpretation where "puella" is the subject and "puerum amat" forms the predicate.
+
+- Another incorrect interpretation where "puella puerum" forms a complex noun phrase before the verb "amat".
+
+This, without strict rule separation, the grammar could become ambiguous, allowing multiple parse trees for a single sentence.
+
+However, in the grammar implemented for this project, noun phrases (NP) are restricted to a single pronoun or noun, and verb phrases (VP) always require a verb followed by exactly one noun phrase.
+This rigid structure ensures that only one syntactic tree is generated per valid sentence.
+
 ---
 
 ## Elimination of Left Recursion
