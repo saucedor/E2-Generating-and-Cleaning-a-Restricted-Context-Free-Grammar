@@ -48,6 +48,16 @@ This structure ensures that the grammar is **context-free** and **suitable for L
 The corresponding syntactic tree is:
 ![Syntax Tree Example](Tree.png)
 
+> **"Puella amat puerum splay tree"**
+
+        S
+      /   \
+    NP    VP
+   /      / \
+  P      V  NP
+ (puella)(amat)(puerum)
+
+
 ## Elimination of Ambiguity
 
 The grammar I designed for recognizing simple Latin sentences is free of ambiguity. Each sentence structure (subject-verb-object) produces exactly one syntactic tree, ensuring a single clear interpretation.
