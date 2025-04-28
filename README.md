@@ -50,12 +50,15 @@ The corresponding syntactic tree is:
 
 > **"Puella amat puerum splay tree"**
 
+'''
         S
       /   \
     NP    VP
    /      / \
   P      V  NP
  (puella)(amat)(puerum)
+
+'''
 
 
 ## Elimination of Ambiguity
