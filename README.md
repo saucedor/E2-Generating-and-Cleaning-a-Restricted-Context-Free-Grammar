@@ -245,10 +245,6 @@ Since I modeled the grammar using a **PDA**, the expected parsing complexity for
 
 ---
 
-## Conclusion
-
-My grammar fits cleanly within the **Context-Free (Type 2)** category both before and after checking for ambiguity and left recursion.  
-By modeling its recognition with a **Pushdown Automaton**, parsing simple Latin sentences remains efficient and conceptually correct within the expected complexity.
 
 ## References
 
