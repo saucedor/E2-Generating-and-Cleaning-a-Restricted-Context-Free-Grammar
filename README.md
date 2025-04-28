@@ -117,11 +117,11 @@ There is no case where a non-terminal directly calls itself as the first element
 
 ## Implementation
 
-For the implementation, I used **Python** and the **Natural Language Toolkit (NLTK)** library to define the grammar and parse Latin sentences.
+For the implementation, we used Python and the Natural Language Toolkit (NLTK) library to define the grammar and parse Latin sentences.
 
-First, I created a **Context-Free Grammar (CFG)** using `nltk.CFG.fromstring()`. The grammar defines simple Latin sentences with a subject-verb-object structure. Subjects can be pronouns or nouns, verbs are simple present tense actions, and objects are nouns.
+First, we created a Context-Free Grammar (CFG) using nltk.CFG.fromstring(). The grammar defines simple Latin sentences following a subject-verb-object (SVO) structure. Subjects can be pronouns or nouns, verbs are simple present tense actions, and objects are accusative nouns.
 
-Here is the main structure of the grammar:
+Here is the defined grammar:
 
 - **S** → NP VP
 - **NP** → P | N
@@ -149,8 +149,14 @@ These sentences strictly follow the grammar's structure:
 
 All valid sentences were **accepted** by the parser:
 
-'ego edit panem': Accepted 'illa videt pelliculam': Accepted 'puella amat puerum': Accepted 'nos bibit aquam': Accepted
+````
+Testing valid sentences:
+'ego edit panem': Accepted
+'illa videt pelliculam': Accepted
+'puella amat puerum': Accepted
+'nos bibit aquam': Accepted
 
+````
 
 ### Invalid Sentences
 These sentences were designed to break the grammar rules, either by incorrect word order or improper structure:
@@ -162,7 +168,13 @@ These sentences were designed to break the grammar rules, either by incorrect wo
 
 All invalid sentences were correctly **rejected**:
 
-'ille panem bibit': Rejected 'vos panem edit': Rejected 'illi pelliculam videt': Rejected 'puella puerum amat': Rejected
+````
+Testing invalid sentences:
+'ille panem bibit': Rejected
+'vos panem edit': Rejected
+'illi pelliculam videt': Rejected
+'puella puerum amat': Rejected
+````
 
 ## Example of Pushdown Automaton (PDA)
 
