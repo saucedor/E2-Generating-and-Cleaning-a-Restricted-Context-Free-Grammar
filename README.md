@@ -4,7 +4,7 @@
 
 For this project, i have chose **Latin** as the target language for grammar generation and analysis.
 
-Latin is a classical language belongs to the Italic branch of the Indo-European languages. It was spoken in the Roman Republic and the Roman Empire, and it remains highly influential in modern languages, law, science, and theology. Despite being considered a "dead language" meaning it no longer has native speakers, Latin is still actively seen, studied and used in academic, ecclesiastical, and legal contexts.
+Latin is a classical language belongs to the Italic branch of the Indo-European languages. It was spoken in the Roman Republic and the Roman Empire, and it remains highly influential in modern languages, law, science, and theology. Despite being considered a "dead language" meaning it no longer has native speakers, Latin is still actively seen, studied and used in academic, ecclesiastical, and legal contexts. Also is an official languaje in Vatican City
 
 For the scope of this project, we will focus on modeling a **subset of Latin phrases** with a simplified structure:
 - Basic noun phrases (e.g., *"Puella amat" — "The girl loves"*)
@@ -95,14 +95,14 @@ could have two different parse trees:
 
 This, without strict rule separation, the grammar could become ambiguous, allowing multiple parse trees for a single sentence.
 
-However, in the grammar implemented for this project, noun phrases (NP) are restricted to a single pronoun or noun, and verb phrases (VP) always require a verb followed by exactly one noun phrase.
+Howe, in the grammar implemented for this project, noun phrases (NP) are restricted to a single pronoun or noun, and verb phrases (VP) always require a verb followed by exactly one noun phrase.
 This rigid structure ensures that only one syntactic tree is generated per valid sentence.
 
 ---
 
 ## Elimination of Left Recursion
 
-The original grammar also did not contain left recursion. In all production rules, the first symbol derived is different from the non-terminal being defined, which prevents left-recursive loops.
+The original grammar also not contain left recursion. In all production rules, the first symbol derived is different from the non-terminal being defined, which prevents left-recursive loops.
 
 For example:
 - **S → NP VP** starts with a noun phrase (NP).
@@ -178,7 +178,7 @@ Testing invalid sentences:
 
 ## Example of Pushdown Automaton (PDA)
 
-To better illustrate how the grammar recognizes a valid Latin sentence, here is a simplified example of how a Pushdown Automaton (PDA) would parse the sentence **"illa videt pelliculam"**:
+To better illustrate how the gramar recognizes a valid Latin sentence, here is a simplified example of how a Pushdown Automaton (PDA) would parse the sentence **"illa videt pelliculam"**:
 
 ### Initial setup:
 - The stack initially contains the start symbol `S`.
@@ -199,7 +199,7 @@ To better illustrate how the grammar recognizes a valid Latin sentence, here is 
 
 ### Explanation:
 - At each step, the PDA uses the top of the stack and the current input symbol to decide whether to expand a rule or match a terminal.
-- After consuming all input symbols and emptying the stack, the sentence is accepted as valid according to the grammar.
+- After consuming all input symbols and emptying the stack, the word is accepted as valid accord to the grammar.
 
 This example confirms that the grammar is suitable for parsing using a context-free automaton like a PDA.
 
@@ -208,7 +208,7 @@ This example confirms that the grammar is suitable for parsing using a context-f
 ### Chomsky's Hierarchy Level Before Elimination
 
 Initially, the grammar I designed is **Context-Free (Type 2)** according to **Chomsky’s hierarchy**.  
-It consists of rules where a single non-terminal produces one or more sequences of terminals and non-terminals, and the left-hand side of each production contains exactly one non-terminal.
+It consists of rules where a single non-terminal produces one or more sequences of terminal and non-terminals, and the left-hand side of each production contains exactly one non-terminal.
 
 At this stage:
 - The grammar was simple and focused on subject-verb-object structures.
@@ -217,7 +217,7 @@ At this stage:
 
 ### Chomsky's Hierarchy Level After Elimination
 
-After confirming that there was **no ambiguity** and **no left recursion**, the grammar remains classified as **Context-Free (Type 2)**.  
+After confirm that there was **no ambiguity** and **no left recursion**, the grammar remains classified as **Context-Free (Type 2)**.  
 No changes in its Chomsky hierarchy level were necessary because the original design already respected context-free properties.
 
 Thus, both **before** and **after** validation, the grammar stays at the **Context-Free** level.
