@@ -47,3 +47,31 @@ This structure ensures that the grammar is **context-free** and **suitable for L
 The corresponding syntactic tree is:
 ![Syntax Tree Example](Tree.png)
 
+## Elimination of Ambiguity
+
+The grammar I designed for recognizing simple Latin sentences is free of ambiguity. Each sentence structure (subject-verb-object) produces exactly one syntactic tree, ensuring a single clear interpretation.
+
+For example, the sentence **"puella amat puerum"** ("the girl loves the boy") can only be parsed in one way: 
+- "puella" is the subject (NP → P).
+- "amat" is the verb (V).
+- "puerum" is the object (NP → N).
+
+Since there are no alternative ways to group the words, there are no multiple derivations, and thus, no ambiguity is present in the grammar.
+
+---
+
+## Elimination of Left Recursion
+
+The original grammar also did not contain left recursion. In all production rules, the first symbol derived is different from the non-terminal being defined, which prevents left-recursive loops.
+
+For example:
+- **S → NP VP** starts with a noun phrase (NP).
+- **VP → V NP** starts with a verb (V).
+- **NP → P** starts with a pronoun (P).
+
+There is no case where a non-terminal directly calls itself as the first element, ensuring that the grammar is suitable for LL(1) parsing techniques without modifications.
+
+---
+
+
+
