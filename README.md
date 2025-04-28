@@ -45,5 +45,5 @@ This structure ensures that the grammar is **context-free** and **suitable for L
 > **"puella amat puerum"**
 
 The corresponding syntactic tree is:
-![Syntax Tree Example](tree.png)
+![Syntax Tree Example](Tree.png)
 
