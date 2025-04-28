@@ -149,5 +149,63 @@ To better illustrate how the grammar recognizes a valid Latin sentence, here is 
 
 This example confirms that the grammar is suitable for parsing using a context-free automaton like a PDA.
 
+## Analysis
+
+### Chomsky's Hierarchy Level Before Elimination
+
+Initially, the grammar I designed is **Context-Free (Type 2)** according to **Chomsky’s hierarchy**.  
+It consists of rules where a single non-terminal produces one or more sequences of terminals and non-terminals, and the left-hand side of each production contains exactly one non-terminal.
+
+At this stage:
+- The grammar was simple and focused on subject-verb-object structures.
+- There was no ambiguity or left recursion detected in the examples tested.
+- Therefore, it was already context-free without needing major transformations.
+
+### Chomsky's Hierarchy Level After Elimination
+
+After confirming that there was **no ambiguity** and **no left recursion**, the grammar remains classified as **Context-Free (Type 2)**.  
+No changes in its Chomsky hierarchy level were necessary because the original design already respected context-free properties.
+
+Thus, both **before** and **after** validation, the grammar stays at the **Context-Free** level.
+
+---
+
+### Time Implications Based on Grammar Levels
+
+- **Regular Grammars (Type 3)** can be parsed in **O(n)** time using simple finite automata without any stack.
+- **Context-Free Grammars (Type 2)**, like the one in my project, typically require **O(n³)** time in the worst case when parsed with general algorithms such as CYK.  
+- However, when modeled using a **Pushdown Automaton (PDA)** for simple structures, parsing can be done more efficiently, often close to **O(n)** time for well-formed input.
+
+Since I modeled the grammar using a **PDA**, the expected parsing complexity for valid simple sentences is approximately **O(n)**, where **n** is the number of words.
+
+---
+
+### Examples of Strings by Chomsky Level
+
+| Level | Example | Explanation |
+|:-----|:--------|:------------|
+| Regular (Type 3) | `"ababa"` | A sequence accepted by a simple regular expression like `(ab)*a`. |
+| Context-Free (Type 2) | `"illa videt pelliculam"` | A simple Latin sentence parsed using a pushdown automaton. |
+| Context-Sensitive (Type 1) | `"aⁿbⁿcⁿ"` | Strings like `"aaabbbccc"`, where the number of `a`s, `b`s, and `c`s must match. |
+| Recursively Enumerable (Type 0) | Complex Turing machine languages | Languages that can only be recognized by a Turing machine. |
+
+---
+
+## Conclusion
+
+My grammar fits cleanly within the **Context-Free (Type 2)** category both before and after checking for ambiguity and left recursion.  
+By modeling its recognition with a **Pushdown Automaton**, parsing simple Latin sentences remains efficient and conceptually correct within the expected complexity.
+
+## References
+
+- Hopcroft, J. E., Motwani, R., & Ullman, J. D. (2007). *Introduction to Automata Theory, Languages, and Computation* (3rd ed.). Pearson Education.
+
+- Jurafsky, D., & Martin, J. H. (2009). *Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition* (2nd ed.). Prentice Hall.
+
+- NLTK :: Sample usage for grammar. (n.d.). https://www.nltk.org/howto/grammar.html
+
+- Bird, S., Klein, E., & Loper, E. (2009). *Natural Language Processing with Python* (1st ed.). O'Reilly Media.
+  
+- Errors and exceptions. (n.d.). Python Documentation. https://docs.python.org/3/tutorial/errors.html#handling-exceptions
 
 
