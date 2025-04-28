@@ -19,12 +19,12 @@ My objective is to develop a formal grammar that can generate and validate simpl
 
 The grammar that recognizes the language is the following:
 
-S → NP VP
-NP → P | N
-VP → V NP
-P → ego | tu | ille | illa | nos | vos | illi
-V → edit | bibit | amat | videt
-N → puella | puerum | panem | aquam | pila | pelliculam
+-  S → NP VP
+-  NP → P | N
+-  VP → V NP
+-  P → ego | tu | ille | illa | nos | vos | illi
+-  V → edit | bibit | amat | videt
+-  N → puella | puerum | panem | aquam | pila | pelliculam
 
 > "Noun phrases (NP) can be either nominative pronouns (P) or nouns (N) acting as subjects."
 
